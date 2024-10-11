@@ -9,7 +9,7 @@ const LoginForm = ({ onLogin }) => {
       if (username && password) {
         onLogin({ username, password }); // اطمینان از اینکه ورودی‌ها معتبر هستند
       } else {
-        console.error("Invalid login attempt"); // بررسی ورودی‌ها
+        console.error("Invalid login attempt");
       }
     };
   
@@ -31,6 +31,5 @@ const LoginForm = ({ onLogin }) => {
       </form>
     );
   };
-  
 
 export default LoginForm;

@@ -14,12 +14,12 @@ import ActivityHistory from './components/ActivityHistory';
 import ImageGallery from './components/ImageGallery';
 import PrivacySettings from './components/PrivacySettings';
 import GroupsAndPages from './components/GroupsAndPages';
-import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
+// import LoginForm from './components/LoginForm';
+// import SignupForm from './components/SignupForm';
 import './App.css';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [posts, setPosts] = useState([]);
   const [messages, setMessages] = useState([]);
   const [notifications, setNotifications] = useState([]);
@@ -29,13 +29,13 @@ const App = () => {
   const [polls, setPolls] = useState([]);
 
   // مدیریت ورود و ثبت‌نام
-  const handleLogin = (userData) => {
-    setIsLoggedIn(true);
-  };
+  // const handleLogin = (userData) => {
+  //   setIsLoggedIn(true);
+  // };
 
-  const handleSignup = (userData) => {
-    setIsLoggedIn(true);
-  };
+  // const handleSignup = (userData) => {
+  //   setIsLoggedIn(true);
+  // };
 
   // مدیریت پیام‌های مستقیم
   const handleSendMessage = (newMessage) => {
@@ -83,14 +83,12 @@ const App = () => {
     setPolls([...polls, newPoll]);
     addNotification(`New poll created: ${newPoll.title}`);
   };
-
   return (
     <div className={darkMode ? 'dark-mode' : 'light-mode'}>
       <Navbar toggleDarkMode={toggleDarkMode} />
-      {isLoggedIn ? (
-        <>
+        <div>
           <CreatePost onPostCreated={handlePostCreated} />
-          <CreatePoll onAddPoll={handleAddPoll} /> {/* استفاده از CreatePoll */}
+          <CreatePoll onAddPoll={handleAddPoll} />
           <PostList posts={posts} onSavePost={handleSavePost} />
           <FollowersList followers={followers} onAddFollower={addFollower} />
           <DirectMessages messages={messages} onSendMessage={handleSendMessage} />
@@ -103,13 +101,8 @@ const App = () => {
           <PrivacySettings settings={{}} />
           <GroupsAndPages groups={[]} />
           <UserProfile user={{ name: 'John Doe', bio: 'Lorem ipsum' }} />
-        </>
-      ) : (
-        <div>
-          <LoginForm onLogin={handleLogin} />
-          <SignupForm onSignup={handleSignup} />
+          <h1>welcome to S</h1>
         </div>
-      )}
     </div>
   );
 };
