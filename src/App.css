@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dark-mode {
+  background-color: #15202b; /* رنگ پس‌زمینه تاریک */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.light-mode {
+  background-color: white; /* رنگ پس‌زمینه روشن */
+  color: #14171a; /* متن اصلی */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  background-color: #ffffff; /* رنگ پس‌زمینه نوار ناوبری */
+  border-bottom: 1px solid #e1e8ed; /* خط زیر نوار */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+  color: #1da1f2; /* رنگ لوگو */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  padding: 10px;
+  color: #657786; /* رنگ متن لینک‌ها */
+  transition: color 0.3s;
+}
+
+.nav-links li:hover {
+  color: #1da1f2; /* رنگ لینک‌ها در حالت هاور */
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 200px; /* ارتفاع تصویر کاور */
+  object-fit: cover;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid white; /* حاشیه سفید */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: -50px; /* جابجایی تصویر پروفایل */
+}
+
+.bio {
+  font-style: italic;
+  color: #657786; /* رنگ بیوگرافی */
+  text-align: center;
+}
+
+.stats {
+  margin-top: 5px;
+  color: #aab8c2; /* رنگ آمار */
+}
+
+.post-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.post-item {
+  background-color: #f5f8fa; /* رنگ پس‌زمینه پست */
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.post-item:hover {
+  transform: scale(1.02); /* افکت هاور */
+}
+
+.post-item img {
+  max-width: 100%; /* عرض تصویر */
+  border-radius: 10px;
+}
+
+.direct-messages {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.message-list {
+  list-style-type: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.message-item {
+  background-color: #f5f8fa; /* رنگ پس‌زمینه پیام */
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  word-wrap: break-word;
+}
+
+button {
+  background-color: #1da1f2; /* رنگ دکمه‌ها */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #0d8ecf; /* رنگ دکمه‌ها در حالت هاور */
+  transform: translateY(-1px); /* افکت جابجایی */
+}
+
+.search-bar {
+  display: flex;
+  margin: 20px 0;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0d8ecf;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: 100px; /* عرض هر تصویر */
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.notifications {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.notifications ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notifications li {
+
+padding: 10px;
+  border-bottom: 1px solid #e1e8ed;
 }
